@@ -1,8 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
+<!--From https://codepen.io/frytyler/pen/EGdtg-->
 <head>
   <meta charset="UTF-8">
-  <title>Algerian Forest Fires API</title>
+  <title>ML API</title>
   <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
 <link href 'https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
 <link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
@@ -10,18 +11,30 @@
 
 
 </head>
+
 <body>
-    <div class="login">
-	<h1>Algerian Forest Fires Prediction</h1>
+ <div class="login">
+	<h1>Airfoil Prediction</h1>
 
-     <!-- href is created to show the text as hyperlink. When the link is clicked the href procedure
-      will be called. Here in our case classp and tempp will be called respectively-->
+     <!-- Main Input For Receiving Query to our ML -->
+    <form action="{{ url_for('predict')}}"method="post">
+      <input type="text" name="Frequency" placeholder="Frequency" required="required" /><br>
+    	<input type="text" name="Angle of attack" placeholder="Angle of attack" required="required" /><br>
+        <input type="text" name="Chord length" placeholder="Chord length" required="required" /><br>
+        <input type="text" name="Free-stream velocity" placeholder="Free-stream velocity" required="required" /><br>
+        <input type="text" name="Suction side" placeholder="Suction side" required="required" /><br>
 
-        <a href="/classp" class="btn btn-primary btn-block btn-large">Predict Class</a>
-        <a href="/tempp" class="btn btn-primary btn-block btn-large">Predict Temprature</a>
-        <a href="/predict_class_mysql" class="btn btn-primary btn-block btn-large">Predict Bulk Class</a>
 
-    </div>
-{{prediction_text}}
+
+        <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+    </form>
+
+   <br>
+   <br>
+
+
+ </div>
+ {{prediction_text}}
+
 </body>
 </html>
