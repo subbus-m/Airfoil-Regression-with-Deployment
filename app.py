@@ -4,7 +4,7 @@ from flask import Flask,request,app,jsonify, url_for, render_template
 
 app=Flask(__name__)
 # Load pickle file
-model = pickle.load(open('D:\\Subbu\\Learnings\\Data Science\\ML\\Practical\\Airfoil self noise\\model.pkl','rb'))
+model = pickle.load(open('model.pkl','rb'))
 
 @app.route('/')
 def home():
